@@ -1,3 +1,4 @@
+"""Retrieve and print words from a given url"""
 from urllib.request import urlopen
 import sys
 # import Modularity as mod
@@ -5,6 +6,15 @@ import sys
 
 # "http://sixty-north.com/c/t.txt"
 def Get_story_word(url):
+    """fetch a list of words from given url.
+    
+        Args:
+            url: The URL of utf-8 text document.
+        
+        Returns:
+            A list of stings containing the words from the
+            documet
+    """
     story = urlopen(url)
     story_word = []    
     for line in story:
@@ -16,6 +26,11 @@ def Get_story_word(url):
 
 
 def print_item(item):
+    """print item one per line.
+    
+        Args:
+            ietm: an iterable list of items.
+    """
     for word in item:
         print(word)
 
