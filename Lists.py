@@ -24,7 +24,7 @@ R=L[:]#shallow copy
 print(R is L)
 print(R==L)
 # all these methods word fine on any iterable
-P=L.copy#shallow copy
+P=L.copy()#shallow copy
 
 print(P is L)
 
