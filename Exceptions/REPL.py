@@ -1,5 +1,7 @@
-from Exceptional import Convert
+from exceptional import convert,string_log
 
-print(Convert("one three two four".split()))
-print(Convert("TTTTone three two four".split()))
+# print(Convert("one three two four".split()))
+# print(convert("TTTTPone three two four".split()))
+print(string_log("TTTTPone three two four".split()))
 
+ 
