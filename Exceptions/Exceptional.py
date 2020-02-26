@@ -1,3 +1,5 @@
+#EAFP It's easier to ask forgiveness than permision.
+#LBYL-Look before you leave.
 import sys
 from math import log 
 
@@ -21,6 +23,8 @@ def convert(s):
         # x= -2 
         raise
     except :
+        pass
+    finally:
         pass
     return x
 
