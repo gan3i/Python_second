@@ -1,5 +1,6 @@
 #EAFP It's easier to ask forgiveness than permision.
 #LBYL-Look before you leave.
+
 import sys
 from math import log 
 
