@@ -21,4 +21,6 @@ pprint.pprint(prime_square_series)
 
 #comprehensions should only be used without side effects if we need side 
 # effect like printing to console use for loop instead
+
+
     
