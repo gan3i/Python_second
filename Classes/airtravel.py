@@ -92,7 +92,39 @@ class Flights:
         #  return sum(sum(1 for s in row.values() if s is None) 
         #          for row in self._seating if row is not None)
          return sum(sum(1 for s in row.values() if s is None) 
-                  for row in self._seating if row is not None)        
+                  for row in self._seating if row is not None)
+
+
+    def make_boarding_pass(self,card_printer):
+        for passenger, seat in sorted(self._passenger_seats()):
+            card_printer(passenger,seat,self.number(),self._aircraft.model())
+
+
+
+    def _passenger_seats(self):
+        """ Returns an iterable series of passenger seating locations"""
+        rows,row_seats = self._aircraft.seating_plan()
+        for row in rows:
+            for seat in row_seats:
+                passenger = self._seating[row-1][seat]
+                if self._seating[row-1][seat] is not None:
+                    yield (passenger, f"{row}{seat}")
+
+
+def console_card_printer(passenger,seat,flight_number,aircraft):
+    output = f"| Name : {passenger}"      \
+            f"Flight : {flight_number}" \
+            f"Seat : {seat}"            \
+            f"Aircraft : {aircraft}"    \
+            " |"
+    border = "+"+"-" * (len(output)-2) + "+"
+    banner = "|" + " " * (len(output)-2) + "|"
+    lines = [border,banner,output,banner, border]
+    card = "/n".join(lines)
+    print(card)
+    print()
+
+
 
 
 class Aircraft:
