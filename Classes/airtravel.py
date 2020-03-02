@@ -41,15 +41,15 @@ class Flights:
         raises :
             valueerror: is the given seat is unavailable"
         """
-        rows,seat_letter = self._aircraft.seating_plan()
-        row,letter = self._parse_seat(seat)
+        row,row_letter = self._parse_seat(seat)
         if self._seating[row][row_letter] is not None:
             raise ValueError(f"seat {seat} has already been occupied")
 
         self._seating[row][row_letter] = passenger
 
 
-    def _parse_seat(set):
+    def _parse_seat(self,seat):
+        rows,seat_letter = self._aircraft.seating_plan()
         row_letter = seat[-1]
         if row_letter not in seat_letter:
             raise ValueError(f"Invalid seat letter {row_letter}")
@@ -63,6 +63,9 @@ class Flights:
         if row not in rows:
             raise ValueError(f"Invalid row number {row}")
 
+        return int(row_text),row_letter
+
+
 
     def relocate_passenger(self, from_seat,to_seat):
         """relocate a passnger to a diffrent seat
@@ -74,8 +77,22 @@ class Flights:
 
         """
         from_row, from_letter = self._parse_seat(from_seat)
+        if self._seating[from_row][from_letter] is None:
+            raise ValueError(f"No passenger to relocate in seat {from_seat}")
 
-        
+        to_row, to_letter = self._parse_seat(to_seat)
+        if self._seating[to_row][to_letter] is not None:
+            raise ValueError(f"seat {to_seat} already occupied") 
+
+        self._seating[to_row][to_letter] = self._seating[from_row][from_letter]
+        self._seating[from_row][from_letter] = None
+
+
+    def available_seats(self):
+        #  return sum(sum(1 for s in row.values() if s is None) 
+        #          for row in self._seating if row is not None)
+         return sum(sum(1 for s in row.values() if s is None) 
+                  for row in self._seating if row is not None)        
 
 
 class Aircraft:

@@ -12,10 +12,15 @@ print(objf.aircraft_model())
 print(objf._seating[12]["A"])
 
 objf.allocate_seat("12A","gani")
-objf.allocate_seat("12A","gani")
+objf.allocate_seat("13A","gani")
+objf.allocate_seat("14C","gani")
+objf.relocate_passenger("12A","15A")
 # objf.allocate_seat("12A","django")
 
-print(objf._seating[12]["A"])
+print(objf._seating[13]["A"])
+
+print (objf.available_seats())
+
 
 
 # pp(objf._seating)
