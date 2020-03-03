@@ -14,4 +14,6 @@ objf.allocate_seat("14C","hani")
 objf.allocate_seat("09C","sani")
 objf.allocate_seat("08C","pani")
 objf.relocate_passenger("12A","15A")
-objf.make_boarding_pass(console_card_printer)
+ 
+# objf.make_boarding_pass(console_card_printer)
+print(objf.available_seats())

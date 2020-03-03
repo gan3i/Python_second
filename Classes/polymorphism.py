@@ -18,6 +18,11 @@ class AirbusA319:
         return range(1,23),"ABCDEFGH"
 
 
+    def available_seats(self):
+        rows, seats = self.seating_plan()
+        return len(rows)*len(seats)
+
+
 class Boeing777:
 
     def __init__(self,registration):
@@ -34,3 +39,8 @@ class Boeing777:
 
     def seating_plan(self):
         return range(1,23),"ABCDEFGH"
+
+
+    def available_seats(self):
+        rows, seats = self.seating_plan()
+        return len(rows)*len(seats)
