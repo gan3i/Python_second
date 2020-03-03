@@ -113,14 +113,15 @@ class Flights:
 
 def console_card_printer(passenger,seat,flight_number,aircraft):
     output = f"| Name : {passenger}"      \
-            f"Flight : {flight_number}" \
-            f"Seat : {seat}"            \
-            f"Aircraft : {aircraft}"    \
+            f" Flight : {flight_number}" \
+            f" Seat : {seat}"            \
+            f" Aircraft : {aircraft}"    \
             " |"
     border = "+"+"-" * (len(output)-2) + "+"
     banner = "|" + " " * (len(output)-2) + "|"
     lines = [border,banner,output,banner, border]
-    card = "/n".join(lines)
+    card = "\n".join(lines)
+    from pprint import pprint as pp
     print(card)
     print()
 
