@@ -5,7 +5,7 @@ class Flights:
     """ A flight with perticular passenger aircraft"""
     def __init__(self,number,aircraft):
         if not number[:2].isalpha():
-            raise ValueError(f"No airline code in {number}")
+            raise ValueError(f"No airline code in {number}")#class invarients
 
         if not number[:2].isupper():
             raise ValueError(f"Invalid airline code {number}")
