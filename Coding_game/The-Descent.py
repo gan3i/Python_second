@@ -11,18 +11,20 @@ import math
 
 # game loop
 while True:
-    mountain_h = []
-    n=8
-    for i in range(n):
-        mountain_h.append(int(input()))  # represents the height of one mountain.
+    max_height_index = 0
+    height_to_kill = 0
+    for i in range(8):
+        mountain_h = int(input())
+        # represents the height of one mountain.
+        if height_to_kill < mountain_h:
+            max_height_index = i
+            height_to_kill = mountain_h
 
-    #if index == 7:
-    mountain_sorted = sorted(mountain_h)
-    
+    #if index == 7;
         
     
     # Write an action using print
     # To debug: print("Debug messages...", file=sys.stderr)
 
     # The index of the mountain to fire on.
-    print(mountain_h.index(mountain_sorted[n-1]))
+    print(max_height_index)
