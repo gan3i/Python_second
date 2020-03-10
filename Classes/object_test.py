@@ -6,4 +6,4 @@ class Human():
         self._eye_color = eye_color
         self._hair_color = hair_color
 
-fred = Human()
+fred = Human('bule','Dark')
