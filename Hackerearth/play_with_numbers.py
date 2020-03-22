@@ -1,26 +1,33 @@
-import numpy as np
+'''
+# Sample code to perform I/O:
 
+name = input()                  # Reading input from STDIN
+print('Hi, %s.' % name)         # Writing output to STDOUT
+
+# Warning: Printing unwanted or ill-formatted data to output will cause the test cases to fail
+'''
+
+# Write your code here
 def main():
-    from sys import stdin, stdout
+    from sys import stdin,stdout
 
-    n,q=(5,3)#map(int,stdin.readline().split())
-    a= np.arange([1,2,3,4,5])
-    s= slice(2,4)
-    sub_array = a(s)
-    print(sub_array)
-    # for x in [1,2,3,4,5]:
-    #     A.append(int(x)+A[-1])
-    #     print(A)
-    # res=""
-    # for Inp in ["2 5"]:
-    #     l,r=map(int,Inp.split())
-    #     n=r-l+1
-    #     S=A[r]-A[l-1]
-    #     res+=str(S//n)+"\n"
-    # stdout.write(res)
- 
-if __name__ == "__main__":
+    n,l = map(int,stdin.readline().split())
+    array = [0]
+    for x in stdin.readline().split():
+        array.append(int(x)+array[-1])
+    
+
+    res = ""
+    for k in stdin.readlines():
+        k,j =map(int,k.split())
+
+        num_elements = j-k+1
+        array_sum = array[j]-array[k-1]
+        
+        res =str(array_sum//num_elements) + "\n"
+        stdout.write(res)
+
+if "__main__" == __name__:
     main()
 
-print(3//3)
-
+        
