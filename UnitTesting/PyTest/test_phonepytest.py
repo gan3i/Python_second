@@ -1,24 +1,13 @@
+from phonebook import PhoneBook
+import pytest
 
-
-class PhoneBook:
-
-    def __init__(self) ->None:
-        self.numbers ={}
-
-    def add(self,name , number):
-        self.numbers[name] = number
-
-    def lookup(self , name):
-        return self.numbers[name]
-
-    def names(self):
-        return set(self.numbers.keys())
 
 # pytest way for setting up test fixtures/setup 
+# pytest --fixtures gives all the list of fixtures 
 @pytest.fixture
-def phonebook():
-    phonebook = PhoneBook()
-    return phonebook
+def phonebook(tmpdir):
+    return PhoneBook(tmpdir)
+
 
 #dependencies are injected
 def test_lookup_by_name(phonebook):
@@ -31,7 +20,7 @@ def test_phonebook_contains_all_names(phonebook):
     assert phonebook.names() == {"Bob","Missing"}
     assert "Missing" in phonebook.names()
 
-import pytest
+
 def test_phonbook_missing_name_raises_error(phonebook):
     with pytest.raises(KeyError):
         phonebook.lookup("Bob")
