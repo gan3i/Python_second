@@ -37,7 +37,7 @@ def small_straight_sorted(dice):
         >>> small_straight_sorted([1])
         0
 
-        Now it handles sets or unsoted lists
+        Now it handles set or unsoted lists
         >>> small_straight_sorted({1,2,3,4,5})
         15
         >>> small_straight_sorted([2,3,1,4,5])
