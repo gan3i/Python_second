@@ -10,9 +10,6 @@ def fucntion(n):
         print("*")
 
 
-
-
-
 if "__main__" == __name__:
     start_time = time.time()
     fucntion(20)
